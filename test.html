@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+
+<body> 
+	<button id="start">Start Camera</button> 
+
+	<script> 
+		document.querySelector("#start").addEventListener( 
+			'click', async function () { 
+        alert(2)
+				let features = { 
+					video: { 
+						width: { ideal: 1800 }, 
+						height: { ideal: 900 } 
+					} 
+				}; 
+        alert(1)
+				let display = await navigator.mediaDevices 
+					.getUserMedia(features); 
+        alert(display)
+				// Returns a sequence of MediaStreamTrack objects 
+				// representing the video tracks in the stream 
+
+				let settings = display.getVideoTracks()[0] 
+					.getSettings(); 
+        alert(settings)
+
+				let width = settings.width; 
+				let height = settings.height; 
+
+
+        alert(width)
+        alert(height)
+			}); 
+	</script> 
+</body> 
+
+</html>
